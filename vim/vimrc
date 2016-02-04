@@ -1,0 +1,214 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Modify from amix/vimrc Basic version
+"
+" Maintainer: 
+"   ctjoy
+" 
+" Sections:
+"    -> General
+"    -> Vundle and Plugin setup 
+"    -> VIM user interface
+"    -> Colors and Fonts
+"    -> Files and backups
+"    -> Text, tab and indent related
+"    -> Moving around, tabs and buffers
+"    -> Status line
+"    -> Editing mappings
+"    -> Spell checking
+"    -> Skeleton file setting 
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set history=700
+filetype plugin indent on 
+let mapleader = ","
+let g:mapleader = ","
+nmap <leader>w :w!<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vundle and Plugin setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+" Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'vim-scripts/tComment'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'ervandew/supertab'
+Plugin 'pangloss/vim-javascript'
+" Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'mxw/vim-jsx'
+Plugin 'tpope/vim-surround'
+Plugin 'groenewege/vim-less'
+Plugin 'ap/vim-css-color'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            
+
+" Vim-airline Plugin, enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Vim-airline Plugin, show just the file name
+let g:airline#extensions#tabline#fnamemod = ':t'
+" Vim-airline Plugin, show the symbol
+let g:airline_powerline_fonts = 1
+" Let vim indent guides setup
+" let g:indent_guides_enable_on_vim_startup = 1 
+" let g:indent_guides_auto_colors = 0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=gray ctermbg=0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=256
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
+" vim-jsx Plugin, enable .js file syntax
+let g:jsx_ext_required = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Editing mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map 9 ^$
+map 0 ^
+imap jk <Esc>
+nmap <space> :
+nmap <CR> o<Esc>
+
+" T-Comment Plugin, fast shortcut for commenting
+map <leader>c <c-_><c-_>
+
+" NERDTree Plugin, open NERDTree the quick way
+map <leader>n :NERDTreeToggle<CR>
+
+" EasyMotion remap
+map <leader> <Plug>(easymotion-prefix)
+
+" SnipMate remap
+imap <leader><Tab> <Plug>snipMateNextOrTrigger
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch 
+set showmatch 
+set number
+set relativenumber
+set cursorline
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable 
+set background=dark
+" colorscheme solarized
+colorscheme Tomorrow-Night
+set encoding=utf8
+set t_Co=256
+
+" Use Unix as the standard file type
+set fileformats=unix,dos,mac
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nobackup
+set nowritebackup
+set noswapfile
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set autoindent
+set smartindent
+set backspace=indent,eol,start
+
+" Linebreak on 500 characters
+set linebreak
+set textwidth=500
+set wrap 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around, tabs, windows and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Moving around  window fast
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" solution 1 solution 1 Buffer solution from Josh Davis solution 1 solution 1
+" This allows buffers to be hidden if you've modified a buffer.
+" This is almost a must if you wish to use buffers in this way.
+set hidden
+" To open a new empty buffer
+" This replaces :tabnew which I used to bind to this mapping
+nmap <leader>t :enew<cr>
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>q :bp <BAR> bd #<CR>
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+set laststatus=2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Spell checking
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
+
+" Shortcuts using <leader>
+" ]s go to the next spell mistake
+" [s go to the previous spell mistake
+" zg add the new word to the spell file
+" z= choice one of the option
+map <leader>sn ]s 
+map <leader>sp [s
+map <leader>sa zg
+map <leader>s? z=
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"    -> Skeleton file setting 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufNewFile *.html 0r ~/.vim/skeleton/skeleton.html | let IndentStyle = "html"
+au BufNewFile *.sh 0r ~/.vim/skeleton/skeleton.sh | let IndentStyle = "sh"
