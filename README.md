@@ -4,7 +4,11 @@
 
     git clone https://github.com/ctjoy/dotfiles.git ~/.dotfiles
 
-###vim
-    sh ~/.dotfiles/install_vimrc.sh
+###vimconfig
+####install
+    sh ~/.dotfiles/install_vimconfig.sh
+####upate
+    sh ~/.dotfiles/update_vimconfig.sh
+
 ###gitconfig
     sh ~/.dotfiles/install_gitconfig.sh
