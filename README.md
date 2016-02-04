@@ -6,3 +6,5 @@
 
 ###vim
     sh ~/.dotfiles/install_vimrc.sh
+###gitconfig
+    sh ~/.dotfiles/install_gitconfig.sh

@@ -1,0 +1,14 @@
+[user]
+	name = ctjoy
+	email = ctjoychen@gmail.com
+[core]
+    editor = vim
+[diff]
+    tool = vimdiff
+[color]
+    ui = auto
+[alias]
+    a = add --all
+    b = branch
+    cm = commit -m
+    s = status
