@@ -208,7 +208,13 @@ map <leader>sa zg
 map <leader>s? z=
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"    -> Skeleton file setting 
+" => Skeleton file setting 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufNewFile *.html 0r ~/.vim/skeleton/skeleton.html | let IndentStyle = "html"
 au BufNewFile *.sh 0r ~/.vim/skeleton/skeleton.sh | let IndentStyle = "sh"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Change tab indent by different language 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
