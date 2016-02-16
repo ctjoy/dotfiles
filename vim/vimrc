@@ -17,6 +17,7 @@
 "    -> Editing mappings
 "    -> Spell checking
 "    -> Skeleton file setting 
+"    -> Change tab indent by different language 
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -217,4 +218,4 @@ au BufNewFile *.sh 0r ~/.vim/skeleton/skeleton.sh | let IndentStyle = "sh"
 " => Change tab indent by different language 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-
+autocmd Filetype less setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
