@@ -5,12 +5,12 @@
     git clone https://github.com/ctjoy/dotfiles.git ~/.dotfiles
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-###vimconfig
+###vim
     sh ~/.dotfiles/install_vimconfig.sh
 
-###gitconfig
+###git
     sh ~/.dotfiles/install_gitconfig.sh
 
-###bashconfig
+###bash
     sh ~/.dotfiles/install_bashconfig.sh
 
