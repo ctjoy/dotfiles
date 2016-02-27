@@ -1,18 +1,20 @@
 [user]
-	name = ctjoy
-	email = ctjoychen@gmail.com
+  name = ctjoy
+  email = ctjoychen@gmail.com
+[credential]
+	helper = osxkeychain
 [core]
-    editor = vim
+  editor = vim
 [diff]
-    tool = vimdiff
+  tool = vimdiff
 [color]
-    ui = auto
+  ui = auto
+[merge]
+	tool = vimdiff
 [alias]
-    a = add --all
-    b = branch
-    cm = commit -m
-    s = status
-    ##############################################################################
-    # from http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs  
-    ##############################################################################
-    l = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  a = add --all
+  b = branch
+  cm = commit -m
+  l = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  o = checkout
+  s = status

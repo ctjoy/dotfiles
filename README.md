@@ -10,3 +10,7 @@
 
 ###gitconfig
     sh ~/.dotfiles/install_gitconfig.sh
+
+###bashconfig
+    sh ~/.dotfiles/install_bashconfig.sh
+

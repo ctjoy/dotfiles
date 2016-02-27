@@ -1,0 +1,16 @@
+GREEN="\[\033[32m\]"
+YELLOW="\[\033[33m\]"
+RED="\[\033[31m\]"
+BLUE="\[\033[34m\]"
+MAGENTA="\[\033[35m\]"
+CYAN="\[\033[37m\]"
+RESET="\[\033[0m\]"
+
+export CLICOLOR=1
+export PS1="${YELLOW}\u${RESET} @ ${GREEN}\h${RESET} ${CYAN}\w${RESET} ${RED}\$(__git_ps1 '(%s)')${RESET}\$ " 
+
+source ~/.dotfiles/git/git-completion.bash
+source ~/.dotfiles/git/git-prompt.sh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
