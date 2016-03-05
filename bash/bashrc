@@ -30,7 +30,7 @@ MAGENTA="\[\033[35m\]"
 CYAN="\[\033[37m\]"
 RESET="\[\033[0m\]"
 
-PS1="${YELLOW}\u${RESET}@${GREEN}\h${RESET} ${CYAN}\w${RESET} ${RED}\$(__git_ps1 '(%s)')${RESET}\$ " 
+PS1="${YELLOW}\u${RESET} @ ${GREEN}\h${RESET} ${CYAN}\w${RESET} ${RED}\$(__git_ps1 '(%s)')${RESET}\$ " 
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
