@@ -1,6 +1,8 @@
-# Smmary
+# Summary
+
 * [Introduction](README.md)
-* Vim
+* [Vim](vim.md)
 * Bash
 * Tmux
 * Git
+
