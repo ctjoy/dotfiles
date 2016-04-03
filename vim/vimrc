@@ -8,13 +8,13 @@
 " Sections:
 "    -> General
 "    -> Vundle and Plugin setup 
+"    -> Editing mappings
 "    -> VIM user interface
 "    -> Colors and Fonts
 "    -> Files and backups
 "    -> Text, tab and indent related
 "    -> Moving around, tabs and buffers
 "    -> Status line
-"    -> Editing mappings
 "    -> Spell checking
 "    -> Skeleton file setting 
 "    -> Change tab indent by different language 
@@ -43,24 +43,25 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+
+" Appearance
 Plugin 'bling/vim-airline'
-" Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'vim-scripts/tComment'
+
+" Easy Editing
 Plugin 'scrooloose/nerdtree'
+Plugin 'vim-scripts/tComment'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ervandew/supertab'
-Plugin 'pangloss/vim-javascript'
-" Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-surround'
+
+" Syntax color and indent
+Plugin 'othree/yajs.vim'
+Plugin 'gavocanov/vim-js-indent'
+Plugin 'mxw/vim-jsx'
 Plugin 'groenewege/vim-less'
-Plugin 'ap/vim-css-color'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'ap/vim-css-color'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            
@@ -71,13 +72,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 " Vim-airline Plugin, show the symbol
 let g:airline_powerline_fonts = 1
-" Let vim indent guides setup
-" let g:indent_guides_enable_on_vim_startup = 1 
-" let g:indent_guides_auto_colors = 0
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=gray ctermbg=0
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=256
-" let g:indent_guides_start_level = 2
-" let g:indent_guides_guide_size = 1
 " vim-jsx Plugin, enable .js file syntax
 let g:jsx_ext_required = 0
 
@@ -99,9 +93,6 @@ map <leader>n :NERDTreeToggle<CR>
 " EasyMotion remap
 map <leader> <Plug>(easymotion-prefix)
 
-" SnipMate remap
-imap <leader><Tab> <Plug>snipMateNextOrTrigger
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -119,7 +110,6 @@ set cursorline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable 
 set background=dark
-" colorscheme solarized
 colorscheme Tomorrow-Night
 set encoding=utf8
 set t_Co=256
