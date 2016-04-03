@@ -1,6 +1,6 @@
 # Git
 
 
-###git
+###Installation
     sh ~/.dotfiles/install_gitconfig.sh
 
