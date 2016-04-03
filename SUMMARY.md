@@ -1,8 +1,8 @@
 # Summary
 
 * [Introduction](README.md)
-* [Vim](vim.md)
-* [Bash](bash.md)
-* [Tmux](tmux.md)
-* [Git](git.md)
+* [Vim](gitbook/vim.md)
+* [Bash](gitbook/bash.md)
+* [Tmux](gitbook/tmux.md)
+* [Git](gitbook/git.md)
 
