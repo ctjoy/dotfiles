@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Vim](vim.md)
-* Bash
+* [Bash](bash.md)
 * Tmux
 * Git
 
