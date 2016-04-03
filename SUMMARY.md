@@ -3,6 +3,6 @@
 * [Introduction](README.md)
 * [Vim](vim.md)
 * [Bash](bash.md)
-* Tmux
+* [Tmux](tmux.md)
 * Git
 
