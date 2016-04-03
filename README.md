@@ -30,4 +30,5 @@
     sh ~/.dotfiles/install_bashconfig.sh
     
     test local update
+    test2
 
