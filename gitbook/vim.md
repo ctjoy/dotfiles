@@ -3,8 +3,8 @@
 ### Installation
     sh ~/.dotfiles/install_vimconfig.sh
     
-###Included Plugins
-* [ Vundle.vim ](https://github.com/gmarik/Vundle.vim): manage the plugin
+### Included Plugins
+* [ Vundle.vim ](https://github.com/gmarik/Vundle.vim): manage the plugins
 * [ vim-tomorrow-theme ](https://github.com/chriskempson/tomorrow-theme): tomorrow color theme
 * [ vim-airline ](https://github.com/bling/vim-airline): status and tab line bar
 * [ tComment ](https://github.com/vim-scripts/tComment): fast shortcut for commenting
