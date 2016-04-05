@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
+* [Introduction](INTRO.md)
 * [Vim](gitbook/vim.md)
 * [Bash](gitbook/bash.md)
    * [.bashrc vs .bash_profile](gitbook/bashrc_vs_bashprofile.md)
