@@ -55,6 +55,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'tmhedberg/SimpylFold'
 
 " Syntax color and indent
 Plugin 'othree/yajs.vim'
@@ -63,6 +64,8 @@ Plugin 'mxw/vim-jsx'
 Plugin 'groenewege/vim-less'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ap/vim-css-color'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'hdima/python-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            
@@ -76,6 +79,18 @@ let g:airline_powerline_fonts = 1
 " vim-jsx Plugin, enable .js file syntax
 let g:jsx_ext_required = 0
 
+" python-syntax Plugin
+let python_highlight_all = 1
+
+" SimpylFold Plugin, enable previewing of your folded classes' and functions' docstrings in the fold text
+let g:SimpylFold_docstring_preview = 1
+" In order for SimpylFold to be properly loaded in certain cases
+" autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+" autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+
+" NERDTree Plugin, ignore files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$'] 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -85,14 +100,17 @@ imap jk <Esc>
 nmap <space> :
 nmap <CR> o<Esc>
 
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the '
+nnoremap ' za
+
 " T-Comment Plugin, fast shortcut for commenting
 map <leader>c <c-_><c-_>
 
 " NERDTree Plugin, open NERDTree the quick way
 map <leader>n :NERDTreeToggle<CR>
-
-" EasyMotion remap
-" map <leader> <Plug>(easymotion-prefix)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -105,6 +123,7 @@ set showmatch
 set number
 set relativenumber
 set cursorline
+set clipboard=unnamed
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -141,6 +160,27 @@ set linebreak
 set textwidth=500
 set wrap 
 
+autocmd BufNewFile,BufRead *.py call SetPythonFileIndent()
+function SetPythonFileIndent()
+  set tabstop=4 
+  set softtabstop=4
+  set shiftwidth=4
+  set expandtab
+  set autoindent
+  set fileformat=unix
+endfunction
+
+autocmd BufNewFile,BufRead *.js, *.html, *.css call SetFrontEndFileIndent()
+function SetFrontEndFileIndent()
+  set tabstop=2
+  set softtabstop=2
+  set shiftwidth=2
+endfunction
+
+" mark extra whitespace as bad, and probably color it red.
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -173,9 +213,9 @@ nmap <leader>bl :ls<CR>
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal! g`\"" |
-            \ endif
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
 " Remember info about open buffers on close
 set viminfo^=%
 
@@ -205,9 +245,3 @@ map <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufNewFile *.html 0r ~/.vim/skeleton/skeleton.html | let IndentStyle = "html"
 au BufNewFile *.sh 0r ~/.vim/skeleton/skeleton.sh | let IndentStyle = "sh"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Change tab indent by different language 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-" autocmd Filetype less setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
