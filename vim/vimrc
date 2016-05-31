@@ -54,6 +54,7 @@ Plugin 'vim-scripts/tComment'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-surround'
+Plugin 'jiangmiao/auto-pairs'
 
 " Syntax color and indent
 Plugin 'othree/yajs.vim'
@@ -91,7 +92,7 @@ map <leader>c <c-_><c-_>
 map <leader>n :NERDTreeToggle<CR>
 
 " EasyMotion remap
-map <leader> <Plug>(easymotion-prefix)
+" map <leader> <Plug>(easymotion-prefix)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
