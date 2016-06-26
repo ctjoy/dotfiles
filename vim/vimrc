@@ -177,7 +177,7 @@ function SetFrontEndFileIndent()
   set shiftwidth=2
 endfunction
 
-" mark extra whitespace as bad, and probably color it red.
+" mark extra whitespace as bad, and color it red.
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
