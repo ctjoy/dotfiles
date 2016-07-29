@@ -56,6 +56,7 @@ Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Syntax color and indent
 Plugin 'othree/yajs.vim'
@@ -90,6 +91,12 @@ let g:SimpylFold_docstring_preview = 1
 
 " NERDTree Plugin, ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$'] 
+
+" Ctrlp Plugin, ignore
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
