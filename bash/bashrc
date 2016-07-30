@@ -48,3 +48,6 @@ source ~/.dotfiles/git/git-prompt.sh
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# added by Anaconda2 4.1.0 installer
+export PATH="/Users/joychen/anaconda2/bin:$PATH"
