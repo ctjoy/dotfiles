@@ -1,9 +1,7 @@
-[user]
-  name = ctjoy
-  email = ctjoychen@gmail.com
-[credential]
-	helper = osxkeychain
+[include]
+  path = ~/.gitconfig.local
 [core]
+  excludesfile = ~/.gitignore
   editor = vim
 [diff]
   tool = vimdiff
