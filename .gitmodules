@@ -1,0 +1,6 @@
+[submodule "tmux/tmux.symlink/tmux-powerline"]
+	path = tmux/tmux.symlink/tmux-powerline
+	url = https://github.com/erikw/tmux-powerline.git
+[submodule "vim/vim.symlink/bundle/Vundle.vim"]
+	path = vim/vim.symlink/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
