@@ -57,7 +57,7 @@ main () {
     v )
       update_vim_plugin;;
     q )
-      success 'See you~';;
+      success 'See you ~';;
     * )
       ;;
   esac

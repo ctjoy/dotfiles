@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-# change the directory to where this script is
-cd "$(dirname "$0")"
-DOTFILES_ROOT=$(pwd -P)
-
-# make sure everything is ok, otherwise exit this script
-set -e

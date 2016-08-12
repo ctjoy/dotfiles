@@ -1,2 +1,3 @@
 vim-markdown-preview.html
 git/gitconfig.local.symlink
+vim/vim.symlink/bundle/*
