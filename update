@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+# change the directory to where this script is
+cd "$(dirname "$0")"
+DOTFILES_ROOT=$(pwd -P)
+
+# make sure everything is ok, otherwise exit this script
+set -e
+
+echo ''
+
+info () {
+  printf "\r  [ \033[00;34mINFO\033[0m ] $1\n"
+}
+
+user () {
+  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  exit
+}
+
+update_vim_plugin () {
+  info 'Updating vim plugin'
+
+  vim +PluginInstall! +qall
+
+  success 'Updated vim plugin successfully :)'
+}
+
+update_git_submodules () {
+  info 'Updating git submodules'
+
+  git submodule update --recursive
+
+  success 'Updated git submodules successfully :)'
+}
+
+main () {
+  local action=
+
+  user "Which one do you want to update?\n\
+    [g]it submodules, [v]im pluin, [q]uit?"
+
+  read -n 1 action
+
+  case "$action" in
+    g )
+      update_git_submodules;;
+    v )
+      update_vim_plugin;;
+    q )
+      success 'See you ~';;
+    * )
+      ;;
+  esac
+}
+
+main
