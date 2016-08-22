@@ -89,9 +89,21 @@ let g:SimpylFold_docstring_preview = 1
 " In order for SimpylFold to be properly loaded in certain cases
 " autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 " autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the '
+nnoremap ' za
 
+" T-Comment Plugin, fast shortcut for commenting
+map <leader>c <c-_><c-_>
+
+" NERDTree Plugin, open NERDTree the quick way
+map <leader>n :NERDTreeToggle<CR>
 " NERDTree Plugin, ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$'] 
+" NERDTree Plugin, if the only window left open then close it
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Ctrlp Plugin, ignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -113,18 +125,6 @@ map 0 ^
 imap jk <Esc>
 nmap <space> :
 nmap <CR> o<Esc>
-
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-" Enable folding with the '
-nnoremap ' za
-
-" T-Comment Plugin, fast shortcut for commenting
-map <leader>c <c-_><c-_>
-
-" NERDTree Plugin, open NERDTree the quick way
-map <leader>n :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
