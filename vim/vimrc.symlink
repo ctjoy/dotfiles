@@ -2,12 +2,13 @@
 "
 " Modify from amix/vimrc Basic version
 "
-" Maintainer: 
+" Maintainer:
 "   ctjoy
-" 
+"
 " Sections:
 "    -> General
-"    -> Vundle and Plugin setup 
+"    -> Vundle and Plugin
+"    -> Plugin setup
 "    -> Editing mappings
 "    -> VIM user interface
 "    -> Colors and Fonts
@@ -16,8 +17,7 @@
 "    -> Moving around, tabs and buffers
 "    -> Status line
 "    -> Spell checking
-"    -> Skeleton file setting 
-"    -> Change tab indent by different language 
+"    -> Skeleton file setting
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -25,13 +25,13 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set history=700
-filetype plugin indent on 
+filetype plugin indent on
 let mapleader = ","
 let g:mapleader = ","
 nmap <leader>w :w!<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vundle and Plugin setup
+" => Vundle and Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " required
 filetype off                  " required
@@ -50,14 +50,15 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 
 " Easy Editing
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vim-scripts/tComment'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'tmhedberg/SimpylFold'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'airblade/vim-gitgutter'
 
 " Syntax color and indent
 Plugin 'othree/yajs.vim'
@@ -70,40 +71,62 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'hdima/python-syntax'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            
+call vundle#end()
 
-" Vim-airline Plugin, enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Vim-airline Plugin, show just the file name
-let g:airline#extensions#tabline#fnamemod = ':t'
-" Vim-airline Plugin, show the symbol
-let g:airline_powerline_fonts = 1
-" vim-jsx Plugin, enable .js file syntax
-let g:jsx_ext_required = 0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jsx_ext_required = 0 " enable .js file syntax
 
 " python-syntax Plugin
 let python_highlight_all = 1
 
-" SimpylFold Plugin, enable previewing of your folded classes' and functions' docstrings in the fold text
-let g:SimpylFold_docstring_preview = 1
-" In order for SimpylFold to be properly loaded in certain cases
-" autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
-" autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+" Vim-airline Plugin
+let g:airline#extensions#tabline#enabled = 1 " enable the list of buffers
+let g:airline#extensions#tabline#fnamemod = ':t' " show just the file name
+let g:airline_powerline_fonts = 1 " show the symbol
 
-" NERDTree Plugin, ignore files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$'] 
+" T-Comment Plugin, fast shortcut for commenting
+map <leader>c <c-_><c-_>
+
+" NERDTree Plugin
+" open NERDTree the quick way
+map <leader>n :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.pyc$', '\~$'] " ignore files in NERDTree
+" if the only window left open then close it
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Ctrlp Plugin, ignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
-" Vim-markdown-preview Plugin, setting up
-let vim_markdown_preview_hotkey='<C-m>'
-let vim_markdown_preview_toggle=2
-let vim_markdown_preview_browser='Google Chrome'
-let vim_markdown_preview_github=1
-" let vim_markdown_preview_temp_file=1
+" EasyMotion Plugin, mapping
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+" s{char}{char} to move to {char}{char}
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>h <Plug>(easymotion-linebackward)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1
+
+" ctrlp-funky Plugin
+nnoremap <C-p>f :CtrlPFunky<Cr>
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
+
+" vim-gitgutter Plugin
+set updatetime=250
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
@@ -114,26 +137,14 @@ imap jk <Esc>
 nmap <space> :
 nmap <CR> o<Esc>
 
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-" Enable folding with the '
-nnoremap ' za
-
-" T-Comment Plugin, fast shortcut for commenting
-map <leader>c <c-_><c-_>
-
-" NERDTree Plugin, open NERDTree the quick way
-map <leader>n :NERDTreeToggle<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set ignorecase
 set smartcase
 set hlsearch
-set incsearch 
-set showmatch 
+set incsearch
+set showmatch
 set number
 set relativenumber
 set cursorline
@@ -142,7 +153,7 @@ set clipboard=unnamed
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax enable 
+syntax enable
 set background=dark
 colorscheme Tomorrow-Night
 set encoding=utf8
@@ -172,11 +183,11 @@ set backspace=indent,eol,start
 " Linebreak on 500 characters
 set linebreak
 set textwidth=500
-set wrap 
+set wrap
 
 autocmd BufNewFile,BufRead *.py call SetPythonFileIndent()
 function SetPythonFileIndent()
-  set tabstop=4 
+  set tabstop=4
   set softtabstop=4
   set shiftwidth=4
   set expandtab
@@ -214,16 +225,14 @@ map k gk
 set hidden
 " To open a new empty buffer
 " This replaces :tabnew which I used to bind to this mapping
-nmap <leader>t :enew<cr>
+nmap bt :enew<cr>
 " Move to the next buffer
-nmap <leader>l :bnext<CR>
+nmap bl :bnext<CR>
 " Move to the previous buffer
-nmap <leader>h :bprevious<CR>
+nmap bh :bprevious<CR>
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
-nmap <leader>q :bp <BAR> bd #<CR>
-" Show all open buffers and their status
-nmap <leader>bl :ls<CR>
+nmap bq :bp <BAR> bd #<CR>
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -249,13 +258,13 @@ map <leader>ss :setlocal spell!<cr>
 " [s go to the previous spell mistake
 " zg add the new word to the spell file
 " z= choice one of the option
-map <leader>sn ]s 
+map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Skeleton file setting 
+" => Skeleton file setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufNewFile *.html 0r ~/.vim/skeleton/skeleton.html | let IndentStyle = "html"
 au BufNewFile *.sh 0r ~/.vim/skeleton/skeleton.sh | let IndentStyle = "sh"
