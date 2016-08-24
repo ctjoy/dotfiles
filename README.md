@@ -1,6 +1,6 @@
 # My Dotfiles
 
-You can find more detail in [ My Dotfiles Notebook ](https://ctjoy.gitbooks.io/my-dotfiles-notebook/content/).
+Just keep my dotfiles and notes in one place.
 
 ## Installation
 
