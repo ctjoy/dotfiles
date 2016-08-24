@@ -110,6 +110,7 @@ install_vim_plugin () {
   info 'Installing vim plugin'
 
   vim +PluginInstall +qall
+  ./vim/fonts/install.sh
 
   success 'Installed vim plugin successfully :)'
 }
