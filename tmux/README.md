@@ -11,7 +11,6 @@
 * **``c``**: 開啟新的window (create)
 * **``n``**: 跳到下一個window (next)
 * **``p``**: 跳到上一個window (previous)
-* **``x``**: 離開目前的pane
 
 * **``r``**: 重新load tmux.conf (reload)
 * **``|``**: split window h
@@ -24,4 +23,4 @@
 
 ### 不需要加prefix的指令
 * **``<C-hjkl>``**: pane上下左右跳
-* **``<C-d>``**: 離開目前的window
+* **``<C-d>``**: 離開目前的window or pane

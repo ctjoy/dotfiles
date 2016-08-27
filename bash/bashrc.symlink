@@ -30,7 +30,7 @@ MAGENTA="\[\033[35m\]"
 CYAN="\[\033[37m\]"
 RESET="\[\033[0m\]"
 
-PS1="${YELLOW}\u${RESET} @ ${GREEN}\h${RESET} ${CYAN}\w${RESET} ${RED}\$(__git_ps1 '(%s)')${RESET}\$ " 
+PS1="${YELLOW}\u${RESET} ${GREEN}\h${RESET} ${CYAN}\w${RESET} ${RED}\$(__git_ps1 '(%s)')${RESET}\$ " 
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -46,11 +46,6 @@ fortune
 source ~/.dotfiles/git/git-completion.bash
 source ~/.dotfiles/git/git-prompt.sh
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# added by Anaconda2 4.1.0 installer
-export PATH="/Users/joychen/anaconda2/bin:$PATH"
-
-BASE16_SHELL=$HOME/.config/base16-shell/
+# add shell color
+BASE16_SHELL=$HOME/.dotfiles/bash/base16-shell/
 [ -n "$PS1"  ] && [ -s $BASE16_SHELL/profile_helper.sh  ] && eval "$($BASE16_SHELL/profile_helper.sh)"
