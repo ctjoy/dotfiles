@@ -13,4 +13,4 @@
 * **``tmc``**: clear tmux stuff
 
 ## color
-* [ base16-shell ](https://github.com/chriskempson/base16-shell): 我用base16_ocean
+* [ base16-shell ](https://github.com/chriskempson/base16-shell)

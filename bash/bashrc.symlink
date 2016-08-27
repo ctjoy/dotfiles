@@ -45,9 +45,9 @@ fi
 # Add welcome prompt
 fortune
 
-# Add some git config
-source ~/.dotfiles/git/git-completion.bash
-source ~/.dotfiles/git/git-prompt.sh
+# Add some git prompt and auto complete
+source ~/.dotfiles/bash/git-completion.bash
+source ~/.dotfiles/bash/git-prompt.sh
 
 # add shell color
 BASE16_SHELL=$HOME/.dotfiles/bash/base16-shell/

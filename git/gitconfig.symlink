@@ -10,9 +10,14 @@
 [merge]
 	tool = vimdiff
 [alias]
-  a = add --all
-  b = branch
-  cm = commit -m
-  l = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-  o = checkout
-  s = status
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an %Creset' --abbrev-commit
+  ll = log --pretty=oneline --graph --abbrev-commit
+  lm = log --pretty=format:'* %s (%h)'
+  lg = log -p
+  amend = commit --amend --reuse-message=HEAD

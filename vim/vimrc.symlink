@@ -51,7 +51,6 @@ Plugin 'chriskempson/base16-vim'
 
 " Easy Editing
 Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vim-scripts/tComment'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ervandew/supertab'
@@ -65,7 +64,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'othree/yajs.vim'
 Plugin 'gavocanov/vim-js-indent'
 Plugin 'mxw/vim-jsx'
-Plugin 'groenewege/vim-less'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'hynek/vim-python-pep8-indent'
@@ -180,6 +178,7 @@ set noswapfile
 set expandtab
 set smarttab
 set shiftwidth=2
+set softtabstop=2
 set tabstop=2
 set autoindent
 set smartindent
@@ -200,16 +199,12 @@ function SetPythonFileIndent()
   set fileformat=unix
 endfunction
 
-autocmd BufNewFile,BufRead *.js, *.html, *.css call SetFrontEndFileIndent()
-function SetFrontEndFileIndent()
-  set tabstop=2
-  set softtabstop=2
-  set shiftwidth=2
-endfunction
-
 " mark extra whitespace as bad, and color it red.
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+"Remove all trailing whitespace by pressing leader dw
+"Credit http://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file
+nnoremap <leader>dw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -230,14 +225,14 @@ map k gk
 set hidden
 " To open a new empty buffer
 " This replaces :tabnew which I used to bind to this mapping
-nmap bt :enew<cr>
-" Move to the next buffer
-nmap bl :bnext<CR>
-" Move to the previous buffer
-nmap bh :bprevious<CR>
+nmap <leader>t :enew<cr>
+" Tab to next buffer
+nnoremap <tab> :bnext<cr>
+" Shift-tab to previous buffer
+nnoremap <s-tab> :bprevious<cr>
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
-nmap bq :bp <BAR> bd #<CR>
+nmap <leader>q :bp <BAR> bd #<CR>
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *

@@ -14,12 +14,12 @@
 * [ Vundle.vim ](https://github.com/gmarik/Vundle.vim): Manage the plugins.
 
 ### Appearance
-* [ vim-airline ](https://github.com/bling/vim-airline): Status and tab line bar.
-* [ vim-tomorrow-theme ](https://github.com/chriskempson/tomorrow-theme): Tomorrow color theme.
+* [ vim-airline ](https://github.com/vim-airline/vim-airline): Status and tab line bar.
+* [ vim-airline-themes ](https://github.com/vim-airline/vim-airline-themes): Vim airline themes.
+* [ base16-vim ](https://github.com/chriskempson/base16-vim): Base16 color theme.
 
 ### Easy Editing
 * [ nerdtree ](https://github.com/scrooloose/nerdtree): Explore file system in vim.
-* [ nerdtree-git-plugin ](https://github.com/Xuyuanp/nerdtree-git-plugin): A plugin of NERDTree showing git status.
 * [ tComment ](https://github.com/vim-scripts/tComment): Fast shortcut for commenting.
 * [ vim-easymotion ](https://github.com/Lokaltog/vim-easymotion): Vim motions on speed.
 * [ vim-surround ](https://github.com/tpope/vim-surround): Quickly deals surrounding things.
@@ -31,7 +31,6 @@
 
 ### Syntax color and indent
 * [ vim-jsx ](https://github.com/mxw/vim-jsx)
-* [ vim-less ](https://github.com/groenewege/vim-less)
 * [ scss-syntax.vim ](https://github.com/cakebaker/scss-syntax.vim)
 * [ vim-css-color ](https://github.com/ap/vim-css-color)
 * [ vim-js-indent ](https://github.com/gavocanov/vim-js-indent)
@@ -53,15 +52,16 @@
 * **``jk``** = ``<Esc>`` (跳回normal mode)
 * **``9``** = $ (跳到此行的最後一個字)
 * **``0``** = ^ (跳到此行的第一個字)
+* **``<leader>dw``**: 把白色空白刪掉 (delete whitespace)
 
 #### windows and buffers
 
 我目前把buffer當tab在用
 * **``<C-hjkl>``** window上下左右跳
-* **``bh``** 跳上一個buffer
-* **``bl``** 跳上一個buffer
-* **``bt``** 開一個新的buffer
-* **``bq``** 關掉目前所在buffer
+* **``<Tab>``** 跳下一個buffer
+* **``<Shift-Tab>``** 跳上一個buffer
+* **``<leader>t``** 開一個新的buffer
+* **``<leader>q``** 關掉目前所在buffer
 
 ## 外掛指令
 
