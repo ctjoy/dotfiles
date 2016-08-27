@@ -107,12 +107,27 @@ link_file () {
 }
 
 install_vim_plugin () {
-  info 'Installing vim plugin'
+  local action=
 
-  vim +PluginInstall +qall
-  ./vim/fonts/install.sh
+  user "Do you want to install vim plguin?\n\
+    [y]es, [n]o?"
 
-  success 'Installed vim plugin successfully :)'
+  read -n 1 action
+
+  case "$action" in
+    y )
+      info 'Installing vim plugin'
+
+      vim +PluginInstall +qall
+      ./vim/fonts/install.sh
+
+      success 'Installed vim plugin successfully :)';;
+
+    n )
+      success 'See you ~';;
+    * )
+      ;;
+  esac
 }
 
 setup_gitconfig () {
@@ -130,7 +145,6 @@ setup_gitconfig () {
   read -e git_authoremail
 
   sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
-
 
   success 'Set up local gitconfig successfully :)'
 }
@@ -151,32 +165,9 @@ install_dotfiles () {
   success 'Installed dotfiles successfully :)'
 }
 
-main () {
-  local action=
-
-  user "Which one do you want to install?\n\
-    [d]otfiles, [v]im plugin(need to install dotfiles first), [a]ll, [q]uit?"
-
-  read -n 1 action
-
-  case "$action" in
-    d )
-      setup_gitconfig
-      install_dotfiles;;
-    v )
-      install_vim_plugin;;
-    a )
-      setup_gitconfig
-      install_dotfiles
-      install_vim_plugin;;
-    q )
-      success 'See you ~';;
-    * )
-      ;;
-  esac
-}
-
-main
+setup_gitconfig
+install_dotfiles
+install_vim_plugin
 
 # If we're on a Mac, let's install and setup homebrew.
 # if [ "$(uname -s)" == "Darwin"  ]

@@ -8,6 +8,8 @@ Just keep my dotfiles and notes in one place.
     cd ~/.dotfiles
     ./install
 
+start a new shell and then type base16 (tab completion)
+
 ## Update
 
 * submodules update: 
