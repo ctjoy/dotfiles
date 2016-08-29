@@ -17,6 +17,7 @@
 * [ vim-airline ](https://github.com/vim-airline/vim-airline): Status and tab line bar.
 * [ vim-airline-themes ](https://github.com/vim-airline/vim-airline-themes): Vim airline themes.
 * [ base16-vim ](https://github.com/chriskempson/base16-vim): Base16 color theme.
+* [ chriskempson/vim-tomorrow-theme ](https://github.com/chriskempson/vim-tomorrow-theme): Tomorrow Night color theme.
 
 ### Easy Editing
 * [ nerdtree ](https://github.com/scrooloose/nerdtree): Explore file system in vim.
