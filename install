@@ -160,6 +160,8 @@ install_dotfiles () {
   done
 
   git submodule update --init --recursive 
+  source ~/.bashrc
+  tmux source-file ~/.tmux.conf
 
   success 'Installed dotfiles successfully :)'
 }
