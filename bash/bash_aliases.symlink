@@ -17,7 +17,7 @@ alias tml="tmux list-sessions"
 alias tma="tmux attach-session"
 alias tmc="clear && tmux clear-history"
 alias tmk="tmux kill-session"
-alias ltmux="if tmux has; then tmux attach; else tmux new; fi"
+alias ltm="if tmux has; then tmux attach; else tmux new; fi"
 
 # Create a new directory and enter it
 function mkd() {

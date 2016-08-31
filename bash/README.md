@@ -5,6 +5,9 @@
 
 ## .bash_aliases
 
+* **``extract``**: 解壓縮後面接的檔案
+* **``mkd``**: 創建資料夾且進入
+
 ### tmux
 * **``ltm``**: 如果有tmux session就attach，如果沒有就新開一個 (lazy tmux)
 * **``tml``**: tmux ls
