@@ -19,5 +19,7 @@
 * **``Right``**: resize right
 
 ### 不需要加prefix的指令
-* **``<C-hjkl>``**: pane上下左右跳
+``M``是Meta key，通常是``Alt`` key
+
+* **``<M-hjkl>``**: pane上下左右跳
 * **``<C-d>``**: 離開目前的window or pane
