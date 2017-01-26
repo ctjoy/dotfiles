@@ -23,3 +23,7 @@
 
 * **``<M-hjkl>``**: pane上下左右跳
 * **``<C-d>``**: 離開目前的window or pane
+
+用ssh時會有nested tmux的狀況
+* **``<S-Up>``**: 轉到ssh的tmux
+* **``<S-Down>``**: 轉回local的tmux
