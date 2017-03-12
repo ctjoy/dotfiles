@@ -20,6 +20,9 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew c
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
+# Mac os don't have readlink, so I use greadlink in coreutils
+alias readlink='greadlink'
+
 # alias for tmux
 alias tml="tmux list-sessions"
 alias tma="tmux attach-session"
