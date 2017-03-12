@@ -61,6 +61,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-repeat'
+Plugin 'hotoo/pangu.vim'
 
 " Syntax color and indent
 Plugin 'othree/yajs.vim'
