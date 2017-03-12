@@ -14,7 +14,7 @@ start a new shell and then type base16 (tab completion)
 
 * submodules update: 
 
-    ``git submodule update --recursive``
+    ``git submodule update --recursive --remote``
 
 * vim plugin update:
 
