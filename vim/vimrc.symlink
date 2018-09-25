@@ -29,6 +29,7 @@ filetype plugin indent on
 let mapleader = ","
 let g:mapleader = ","
 nmap <leader>w :w!<cr>
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle and Plugin
@@ -62,6 +63,7 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-repeat'
 Plugin 'hotoo/pangu.vim'
+Plugin 'majutsushi/tagbar'
 
 " Syntax color and indent
 Plugin 'othree/yajs.vim'
@@ -129,6 +131,9 @@ let g:ctrlp_funky_syntax_highlight = 1
 set updatetime=250
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
+
+" vim tagbar
+map <Leader>tt :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
