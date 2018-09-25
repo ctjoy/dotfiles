@@ -1,4 +1,9 @@
 # From mathiasbynens dotfiles
+
+# for python
+alias python='python3'
+alias pip='pip3'
+
 # 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
