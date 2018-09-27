@@ -73,6 +73,7 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'hdima/python-syntax'
+Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -134,6 +135,21 @@ nmap [h <Plug>GitGutterPrevHunk
 
 " vim tagbar
 map <Leader>tt :TagbarToggle<CR>
+
+" vim syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+
+highlight link SyntasticError ErrorMsg
+highlight link SyntasticErrorSign WarningMsg
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
