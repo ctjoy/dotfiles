@@ -1,5 +1,8 @@
 # From mathiasbynens dotfiles
 
+# for vim installed by brew
+alias vim="/usr/local/bin/vim"
+
 # for python
 alias python='python3'
 alias pip='pip3'
