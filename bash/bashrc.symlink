@@ -63,3 +63,6 @@ export LC_ALL=en_US.UTF-8
 eval "$(pipenv --completion)"
 # heroku autocomplete setup
 HEROKU_AC_BASH_SETUP_PATH=/Users/ctjoy/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
+
+# added by Miniconda3 installer
+export PATH="/Users/ctjoy/miniconda3/bin:$PATH"
