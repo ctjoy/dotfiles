@@ -10,23 +10,12 @@ brew upgrade
 # Install packages
 
 apps=(
-bash-completion2
 coreutils
 diff-so-fancy
 grip
-git
-jq
-mackup
-peco
-psgrep
-python
-shellcheck
-ssh-copy-id
-tree
+ctags
 vim
-wget
-wifi-password
-
+python
 )
 
 brew install "${apps[@]}"
