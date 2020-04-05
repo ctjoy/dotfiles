@@ -15,7 +15,9 @@ diff-so-fancy
 grip
 ctags
 vim
-python
+# python
+pyenv
+pyenv-virtualenv
 )
 
 brew install "${apps[@]}"
