@@ -1,0 +1,24 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~', '~/.config']
+
+- link: 
+    ~/.bash:
+    ~/.bash_profile:
+    ~/.bashrc:
+    ~/.dotfiles: ''
+    ~/.gitconfig:
+    ~/.gitignore_global:
+    ~/.shell:
+    ~/.tmux.conf:
+    ~/.vim:
+    ~/.vimrc:
+    ~/.zsh:
+    ~/.zshrc:
+
+- shell: 
+  - git submodule sync --recursive
+  - git update-submodules # after linking ~/.gitconfig
