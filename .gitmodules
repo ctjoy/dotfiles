@@ -1,9 +1,6 @@
 [submodule "vim/vim.symlink/bundle/Vundle.vim"]
-	path = vim/vim.symlink/bundle/Vundle.vim
+	path = vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
-[submodule "bash/base16-shell"]
-	path = shell/base16-shell
-	url = https://github.com/chriskempson/base16-shell.git
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
@@ -14,3 +11,15 @@
 [submodule "zsh/plugins/zsh-completions"]
 	path = zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
+[submodule "zsh/plugins/pure"]
+	path = zsh/plugins/pure
+	url = https://github.com/sindresorhus/pure
+[submodule "shell/plugins/base16-shell"]
+	path = shell/plugins/base16-shell
+	url = https://github.com/chriskempson/base16-shell
+[submodule "zsh/plugins/zsh-history-substring-search"]
+	path = zsh/plugins/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule "jupyter/nbextensions/jupyter-vim-binding"]
+	path = jupyter/nbextensions/jupyter-vim-binding
+	url = https://github.com/lambdalisue/jupyter-vim-binding
