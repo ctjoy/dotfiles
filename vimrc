@@ -39,138 +39,106 @@ map <C-a> <Nop>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle and Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible              " required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Appearance
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'chriskempson/base16-vim'
-
-" Easy Editing
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-scripts/tComment'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-surround'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-repeat'
-Plugin 'hotoo/pangu.vim'
-Plugin 'majutsushi/tagbar'
-" Plugin 'davidhalter/jedi-vim'
-
-" Syntax color and indent
-Plugin 'othree/yajs.vim'
-Plugin 'gavocanov/vim-js-indent'
-Plugin 'mxw/vim-jsx'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'ap/vim-css-color'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'hdima/python-syntax'
-" Plugin 'ambv/black', {'rtp': 'vim/bundle'}
-" Plugin 'vim-syntastic/syntastic'
-
-" All of your Plugins must be added before the following line
-call vundle#end()
+" " Plugin 'davidhalter/jedi-vim'
+" Plugin 'hynek/vim-python-pep8-indent'
+" Plugin 'hdima/python-syntax'
+" " Plugin 'ambv/black', {'rtp': 'vim/bundle'}
+" " Plugin 'vim-syntastic/syntastic'
+"
+" " Syntax color and indent
+" Plugin 'othree/yajs.vim'
+" Plugin 'gavocanov/vim-js-indent'
+" Plugin 'mxw/vim-jsx'
+" Plugin 'cakebaker/scss-syntax.vim'
+" Plugin 'ap/vim-css-color'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:jsx_ext_required = 0 " enable .js file syntax
-
-" python-syntax Plugin
-let python_highlight_all = 1
-
-" Vim-airline Plugin
-let g:airline#extensions#tabline#enabled = 1 " enable the list of buffers
-let g:airline#extensions#tabline#fnamemod = ':t' " show just the file name
-" let g:airline_powerline_fonts = 1 " show the symbol
-
-" T-Comment Plugin, fast shortcut for commenting
-map <leader>c <c-_><c-_>
+" vim linghtline
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ }
 
 " NERDTree Plugin
 " open NERDTree the quick way
 map <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] " ignore files in NERDTree
 " if the only window left open then close it
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Ctrlp Plugin, ignore
+" " Ctrlp Plugin, ignore
 nnoremap ; :CtrlPBuffer<CR>
-let g:ctrlp_switch_buffer = 0
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
+"
 " EasyMotion Plugin, mapping
-" <Leader>f{char} to move to {char}
 map <Space> <Plug>(easymotion-prefix)
-" map  <Leader>f <Plug>(easymotion-bd-f)
-" nmap <Leader>f <Plug>(easymotion-overwin-f)
-" " s{char}{char} to move to {char}{char}
-" nmap <Leader>s <Plug>(easymotion-overwin-f2)
-" " JK motions: Line motions
-" map <Leader>j <Plug>(easymotion-j)
-" map <Leader>k <Plug>(easymotion-k)
-" map <Leader>l <Plug>(easymotion-lineforward)
-" map <Leader>h <Plug>(easymotion-linebackward)
-" map  / <Plug>(easymotion-sn)
-" omap / <Plug>(easymotion-tn)
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
-" ctrlp-funky Plugin
-nnoremap <C-p>f :CtrlPFunky<Cr>
-let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_funky_syntax_highlight = 1
-
 " vim-gitgutter Plugin
-set updatetime=250
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
+set updatetime=100
 
 " vim tagbar
 map <Leader>tt :TagbarToggle<CR>
 
-" vim syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" T-Comment Plugin, fast shortcut for commenting
+map <leader>c <c-_><c-_>
 
+" gundo
+nnoremap <Leader>u :GundoToggle<CR>
+if has('python3')
+  let g:gundo_prefer_python3 = 1
+endif
+
+" let g:jsx_ext_required = 0 " enable .js file syntax
+"
+" " python-syntax Plugin
+" let python_highlight_all = 1
+
+
+" " vim syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'npm run lint --'
-let g:syntastic_python_checkers = ['pylint']
-
-highlight link SyntasticError ErrorMsg
-highlight link SyntasticErrorSign WarningMsg
-
-" vim python black formatter
-" nnoremap <Leader>ff :Black<CR>
-" "auto format when close the file
-" autocmd BufWritePre *.py execute ':Black' 
-" let g:black_linelength = 120
-
-" vim python jedi
-let g:jedi#usages_command = ""
+let g:syntastic_mode_map = {
+    \ 'mode': 'passive',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': []
+\}
+nnoremap <Leader>s :SyntasticCheck<CR>
+nnoremap <Leader>r :SyntasticReset<CR>
+nnoremap <Leader>i :SyntasticInfo<CR>
+nnoremap <Leader>m :SyntasticToggleMode<CR>
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+" let g:syntastic_python_checkers = ['pylint']
+"
+" highlight link SyntasticError ErrorMsg
+" highlight link SyntasticErrorSign WarningMsg
+"
+" " vim python black formatter
+" " nnoremap <Leader>ff :Black<CR>
+" " "auto format when close the file
+" " autocmd BufWritePre *.py execute ':Black' 
+" " let g:black_linelength = 120
+"
+" " vim python jedi
+" let g:jedi#usages_command = ""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
@@ -226,6 +194,7 @@ else
     let base16colorspace=256
     source ~/.vimrc_background
   endif
+endif
 
 " Use Unix as the standard file type
 set fileformats=unix,dos,mac
@@ -247,26 +216,18 @@ set backspace=indent,eol,start " allow backspacing over everything
 set nojoinspaces " suppress inserting two spaces between sentences
 set smarttab
 
-" use 2 spaces instead of tabs during formatting
+" use 4 spaces instead of tabs during formatting
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set autoindent
+set fileformat=unix
 
 " Linebreak on 500 characters
 set linebreak
 set textwidth=500
 set wrap
-
-autocmd BufNewFile,BufRead *.py call SetPythonFileIndent()
-function SetPythonFileIndent()
-  set tabstop=4
-  set softtabstop=4
-  set shiftwidth=4
-  set expandtab
-  set autoindent
-  set fileformat=unix
-endfunction
 
 " tab completion for files/bufferss
 set wildmode=longest,list
