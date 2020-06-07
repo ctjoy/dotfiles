@@ -9,10 +9,17 @@ zstyle :prompt:pure:git:stash show yes
 
 prompt pure
 
-# Syntax highlighting
-
+# syntax highlighting
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# history search
 source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# auto suggestions
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# key binding for auto suggestion
+bindkey '^ ' autosuggest-accept
 
 # bind UP DOWN for history search
 bindkey '^[[A' history-substring-search-up

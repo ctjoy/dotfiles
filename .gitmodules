@@ -77,3 +77,6 @@
 [submodule "vim/pack/vendor/start/vim-signature"]
 	path = vim/pack/vendor/start/vim-signature
 	url = https://github.com/kshenoy/vim-signature
+[submodule "zsh/plugins/zsh-autosuggestions"]
+	path = zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
