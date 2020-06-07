@@ -1,32 +1,38 @@
 [alias]
   st = status
-  ci = commit
-  br = branch
+  ci = commit -v
+  br = branch -vv
+  bra = branch -vv --all
   co = checkout
-  unstage = reset HEAD --
+  unstage = restore --staged
   last = log -1 HEAD
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an %Creset' --abbrev-commit
   ll = log --pretty=oneline --graph --abbrev-commit
   lm = log --pretty=format:'* %s (%h)'
   lg = log -p
   amend = commit --amend --reuse-message=HEAD
+  di = diff
+  dis = diff --stat
   dsf = "!f() { [ -z "$GIT_PREFIX"  ] || cd "$GIT_PREFIX" && git diff --color "$@" | diff-so-fancy  | less --tabs=4 -RFX;  }; f"
+  update-submodules = submodule update --init --recursive
+  upgrade-submodules = submodule update --init --remote
+  cleanall = clean -fdx # this is dangerous, so it's intentionally long to type
 
 [diff]
   tool = vimdiff
 
 [credential]
-	helper = cache --timeout=3600
+  helper = cache --timeout=3600
 
 [color]
   ui = auto
 
 [merge]
-	defaultToUpstream = true
-	tool = vimdiff
+  defaultToUpstream = true
+  tool = vimdiff
 
 [push]
-	default = upstream
+  default = upstream
 
 [core]
   excludesfile = ~/.gitignore_global
@@ -34,5 +40,5 @@
 
 # Allow local customizations in the .gitconfig_local file
 [include]
-	path = ~/.gitconfig_local
+  path = ~/.gitconfig_local
 
