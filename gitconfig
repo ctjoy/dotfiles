@@ -1,0 +1,59 @@
+[alias]
+  st = status
+  ci = commit -v
+  br = branch -vv
+  bra = branch -vv --all
+  co = checkout
+  unstage = restore --staged
+  last = log -1 HEAD
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an %Creset' --abbrev-commit
+  ll = log --pretty=oneline --graph --abbrev-commit
+  lm = log --pretty=format:'* %s (%h)'
+  lg = log -p
+  amend = commit --amend --reuse-message=HEAD
+  di = diff
+  dis = diff --stat
+  dsf = "!f() { [ -z "$GIT_PREFIX"  ] || cd "$GIT_PREFIX" && git diff --color "$@" | diff-so-fancy  | less --tabs=4 -RFX;  }; f"
+  update-submodules = submodule update --init --recursive
+  upgrade-submodules = submodule update --init --remote
+  cleanall = clean -fdx # this is dangerous, so it's intentionally long to type
+
+[diff]
+  tool = vimdiff
+
+[credential]
+  helper = cache --timeout=3600
+
+[color]
+  ui = auto
+
+[color "diff"]
+  meta = "11"
+  frag = "magenta bold"
+  commit = "yellow bold"
+  old = "red bold"
+  new = "green bold"
+  whitespace = "red reverse"
+
+[color "diff-highlight"]
+  oldNormal = "red bold"
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 22"
+
+[merge]
+  defaultToUpstream = true
+  tool = vimdiff
+
+[push]
+  default = upstream
+
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = vim
+  pager = diff-so-fancy | less --tabs=1,5 -R
+
+# Allow local customizations in the .gitconfig_local file
+[include]
+  path = ~/.gitconfig_local
+
