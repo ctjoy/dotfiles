@@ -80,3 +80,6 @@
 [submodule "zsh/plugins/zsh-autosuggestions"]
 	path = zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "shell/plugins/diff-so-fancy"]
+	path = shell/plugins/diff-so-fancy
+	url = https://github.com/so-fancy/diff-so-fancy

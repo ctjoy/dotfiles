@@ -28,11 +28,11 @@
 
 - shell:
   - git submodule sync --recursive
-  # the following have to run after linking ~/.gitconfig
-  - git update-submodules
-  - >
-    git cleanall -f
-    jupyter/nbextensions/
-    shell/plugins/
-    zsh/plugins/
-    vim/pack/vendor/start/
+  # # the following have to run after linking ~/.gitconfig
+  # - git update-submodules
+  # - >
+  #   git cleanall -f
+  #   jupyter/nbextensions/
+  #   shell/plugins/
+  #   zsh/plugins/
+  #   vim/pack/vendor/start/
