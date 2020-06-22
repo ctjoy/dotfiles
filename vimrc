@@ -79,7 +79,7 @@ if has('python3')
 endif
 
 " vim vista
-nnoremap <Leader>tt :Vista!!<CR>
+nnoremap <Leader>v :Vista!!<CR>
 let g:vista#renderer#enable_icon = 0
 
 " vim prettier
