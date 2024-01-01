@@ -41,3 +41,13 @@ fi
 if [ -f ~/.zshrc_local_after ]; then
     source ~/.zshrc_local_after
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/joychen/.google-cloud-sdk/path.zsh.inc' ]; then . '/Users/joychen/.google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/joychen/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/joychen/.google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+fpath=($fpath ~/.zsh/completion)
