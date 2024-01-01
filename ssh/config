@@ -8,3 +8,33 @@ Host *
 Host openvpn
     User ctjoy
     Hostname 206.189.38.124
+
+Host bitbucket.org-joy_chen
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/bitbucket-genesys
+    IdentitiesOnly yes
+
+Host bitbucket.org-ctjoy
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/bitbucket-ctjoy
+    IdentitiesOnly yes
+
+Host bitbucket.org-yunhsiangchen
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/id_rsa
+    IdentitiesOnly yes
+
+Host github.com-ctjoy
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github
+    IdentitiesOnly yes
+
+Host github.com-yunxchen
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github-yunxchen
+    IdentitiesOnly yes
