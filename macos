@@ -23,6 +23,8 @@ defaults write -g NSNavPanelExpandedStateForSaveMode2 -bool true
 # show all file extensions
 defaults write -g AppleShowAllExtensions -bool true
 
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool true
+
 # Hot corners
 # Possible values:
 #  0: no-op
