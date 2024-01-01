@@ -102,7 +102,6 @@ Your Mac is now ready to use!
 
 #### Easy editing
 * [ nerdtree ](https://github.com/scrooloose/nerdtree): Explore file system in vim.
-* [ nerdtree-git-plugin ](https://github.com/Xuyuanp/nerdtree-git-plugin): Show git status on nerdtree.
 * [ pangu ](https://github.com/hotoo/pangu.vim): Auto format Chinese and English text.
 * [ tcomment_vim ](https://github.com/tomtom/tcomment_vim): Fast shortcut for commenting.
 * [ gundo ](https://github.com/sjl/gundo.vim): Fast undo.
@@ -118,7 +117,6 @@ Your Mac is now ready to use!
 * [ vim-repeat ](https://github.com/tpope/vim-repeat): Let `.` more powerful in vim.
 
 #### Syntax color and indent
-* [ syntastic ](https://github.com/vim-syntastic/syntastic): Powerful syntax checking plugin.
 * [ vim-javascript ](https://github.com/pangloss/vim-javascript): Javascript syntax hightlight and intent.
 * [ vim-json ](https://github.com/elzr/vim-json): Syntax for json file.
 * [ vim-jsx-pretty ](https://github.com/MaxMEllon/vim-jsx-pretty): React syntax highlighting and indenting plugin.

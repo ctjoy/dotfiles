@@ -40,6 +40,38 @@ packloadall
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'chriskempson/base16-vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'ap/vim-buftabline'
+Plug 'hotoo/pangu.vim'
+Plug 'sjl/gundo.vim'
+Plug 'preservim/tagbar'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'ervandew/supertab'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'kshenoy/vim-signature'
+Plug 'tpope/vim-repeat'
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'prettier/vim-prettier'
+Plug 'ap/vim-css-colorap/vim-css-color'
+call plug#end()
+
+
 " vim linghtline
 set noshowmode
 let g:lightline = {
@@ -96,35 +128,6 @@ nnoremap <Leader>b :Black<CR>
 "auto format when close the file
 autocmd BufWritePre *.py execute ':Black' 
 let g:black_linelength = 120
-
-" " vim syntastic
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_mode_map = {
-"     \ 'mode': 'passive',
-"     \ 'active_filetypes': [],
-"     \ 'passive_filetypes': []
-" \}
-" nnoremap <Leader>s :SyntasticCheck<CR>
-" nnoremap <Leader>r :SyntasticReset<CR>
-" nnoremap <Leader>i :SyntasticInfo<CR>
-" nnoremap <Leader>m :SyntasticToggleMode<CR>
-" vim syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_eslint_exe = 'npm run lint --'
-" let g:syntastic_python_checkers = ['pylint']
-"
-" highlight link SyntasticError ErrorMsg
-" highlight link SyntasticErrorSign WarningMsg
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings

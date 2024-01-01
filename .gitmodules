@@ -107,3 +107,6 @@
 [submodule "vim/pack/vendor/start/vista.vim"]
 	path = vim/pack/vendor/start/vista.vim
 	url = https://github.com/liuchengxu/vista.vim
+[submodule "vim/vim/plugged/auto-pairs"]
+	path = vim/vim/plugged/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
