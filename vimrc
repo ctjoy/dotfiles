@@ -68,7 +68,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier'
-Plug 'ap/vim-css-colorap/vim-css-color'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 
