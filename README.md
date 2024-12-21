@@ -5,14 +5,6 @@ Just keep my dotfiles and notes in one place. I use `master` branch for generic 
 
 ## A fresh macOS setup
 
-### Before you re-install
-First, go through the checklist below to make sure you didn't forget anything before you wipe your hard drive.
-
-* Did you commit and push any changes/branches to your git repositories?
-* Did you remember to save all important documents from non-iCloud directories?
-* Did you save all of your work from apps which aren't synced through iCloud?
-* Did you remember to export important data from your local database?
-
 ### Setting up your Mac
 If you did all of the above you may now follow these install instructions to setup a new Mac.
 
@@ -29,14 +21,8 @@ Your Mac is now ready to use!
 
 * Check out to the machine-specific branch
 * Comment out the command you don't want in `install.conf.yaml`
-* Run `install`
+* Run `./install`
 
-## Branch Hierarchy
-    ```
-    master
-    |
-    +- mac
-    ```
 ## Shell
 
 ### .bashrc vs .bash_profile
