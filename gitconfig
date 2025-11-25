@@ -29,7 +29,7 @@
   tool = vimdiff
 
 [credential]
-  helper = cache --timeout=3600
+  helper = osxkeychain
 
 [color]
   ui = auto

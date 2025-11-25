@@ -7,18 +7,18 @@
 
 - link:
     ~/.shell:
-    ~/.shell_local_before:
     ~/.zsh:
     ~/.zshrc:
+    ~/.zprofile:
     ~/.bash:
     ~/.bashrc:
     ~/.bash_profile:
     ~/.gitconfig:
-    ~/.gitconfig_local:
     ~/.gitignore_global:
     ~/.vim:
     ~/.vimrc:
     ~/.inputrc:
+    ~/.ssh/config: ssh/config
 
 - shell:
   - git submodule sync --recursive

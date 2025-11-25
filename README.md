@@ -12,7 +12,9 @@ If you did all of the above you may now follow these install instructions to set
 * Install macOS Command Line Tools by running xcode-select --install
 * [Generate a new public and private SSH key](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and add them to Github
 * Clone this repo to ~/.dotfiles
-* Run `install` to start the installation
+* Run `./install` to start the installation
+* Run `./brew.sh` to install Homebrew
+* Run `./install_brew` to install other packages
 * Restart your computer to finalize the process
 
 Your Mac is now ready to use!
